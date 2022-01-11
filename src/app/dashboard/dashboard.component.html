@@ -1,0 +1,40 @@
+<!-- <mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <button mat-icon-button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div> -->
+<!-- <span class="prd-lable">Product</span> -->
+<div class="dashboard">
+  <!-- <span class="prd-lable-span">Product List</span> -->
+  <div mat-dialog-actions class="section-up-btn">
+    <button mat-raised-button routerLink="#">Advanced Seacrh</button>
+    <button class="dlg-new-data" color="primary" mat-raised-button routerLink="#">Create New Product</button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container *ngFor="let col of columnName; let i = index" matColumnDef="{{col}}">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{header[i]}} </th>
+      <td mat-cell *matCellDef="let row"> {{row[col]}} </td>
+    </ng-container>
+    <ng-container class="action" matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> ACTION </th>
+      <td mat-cell *matCellDef="let row">
+        <div class="example-button-row">
+          <button class="btn" mat-raised-button routerLink="#">View</button>
+          <button class="btn" mat-raised-button routerLink="#">Edit</button>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="allColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: allColumn"></tr>
+  </table>
+  <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true" [length]="length" (page)="getPageIndex($event)"></mat-paginator>
+<!-- </div>
+</mat-drawer-container> -->

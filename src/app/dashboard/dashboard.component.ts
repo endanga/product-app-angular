@@ -61,7 +61,7 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   getProduct(): void {
-    this.productService.getEmployees(this.pageSize.toString(), this.initPage.toString()).subscribe((products) => {
+    this.productService.getProducts(this.pageSize.toString(), this.initPage.toString()).subscribe((products) => {
       // console.log("empl "+employees[0].rertail_price);
       const tempEmployee = []
       for(let item of products) {
@@ -93,7 +93,7 @@ export class DashboardComponent implements AfterViewInit {
       this.initPage = 0;
     }
     console.log("init_page "+this.initPage)
-    this.productService.getEmployees(e.pageSize.toString(),  this.initPage.toString()).subscribe((products) => {
+    this.productService.getProducts(e.pageSize.toString(),  this.initPage.toString()).subscribe((products) => {
       const tempEmployee = []
       for(let item of products) {
         item.retail_priceStr = this.numberWithCommas(item.retail_price)
@@ -116,13 +116,6 @@ export class DashboardComponent implements AfterViewInit {
      }
    }
 
-  //  testPromise(){
-  //   return new Promise(resolve =>{
-  //     setTimeout(() => {
-  //       resolve(true);
-  //     }, 3000);
-  //   })
-  // }
 }
 
 
